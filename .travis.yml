@@ -20,21 +20,20 @@ android:
         - extra-google-m2repository 
         - extra-android-m2repository
         - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
-        # - compile 'com.google.android.gms:play-services:9.6.1'
-        - compile 'com.google.android.gms:play-services-gcm:8.3.0'
-        # - compile 'com.android.support:support-annotations:24.2.1'
-        # - compile 'com.google.firebase:firebase-core:9.4.0'
-        # - compile 'com.google.android.gms:play-services-auth:9.6.1'
+        - compile 'com.google.android.gms:play-services:9.6.1'
+        - compile 'com.android.support:support-annotations:24.2.1'
+        - compile 'com.google.firebase:firebase-core:9.4.0'
+        - compile 'com.google.android.gms:play-services-auth:9.6.1'
 
-    # licenses:
-    #     - 'android-sdk-preview-license-52d11cd2'
-    #     - 'android-sdk-license-.+'
-    #     - 'google-gdk-license-.+'
+    licenses:
+        - 'android-sdk-preview-license-52d11cd2'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
 
 before_script:
-  #- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  #- emulator -avd test -no-audio -no-window &
-  #- android-wait-for-emulator
-  #- adb shell input keyevent 82 &
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 script: ./gradlew build connectedCheck
